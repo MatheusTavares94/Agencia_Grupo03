@@ -1,5 +1,5 @@
 package pessoal;
 
-public class Cliente {
+public class Cliente extends Individuo {
 
 }
