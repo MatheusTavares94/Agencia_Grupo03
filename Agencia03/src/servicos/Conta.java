@@ -40,5 +40,32 @@ public abstract class Conta {
 		this.tipo = tipo;
 	}
 	
+	public boolean sacar(double valor) {
+		if (this.saldo < valor + 0.10) {
+			return false;
+		} else {
+			double novoSaldo = this.saldo - valor - 0.10;
+			this.saldo = novoSaldo;
+			return true;
+		}
+	}
 	
+	public void depositar(double deposito) {
+		this.saldo = this.saldo + deposito - 0.10;
+	}
+	
+	public void transferir(Conta destino, double valor) {
+	
+		if (valor<=0) {
+			System.out.println("Valor inválido!\n");
+		}
+		
+		else if (this.saldo >= valor + 0.20) {
+			this.saldo = this.saldo - valor-0.20;
+			destino.saldo = destino.saldo + valor;
+			System.out.println("Transferência realizado com sucesso!\n");
+		} else {
+			System.out.println("Não há saldo suficiente para transferência\n");
+		}
+	}
 }
