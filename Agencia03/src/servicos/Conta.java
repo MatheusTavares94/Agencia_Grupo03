@@ -12,6 +12,8 @@ public abstract class Conta {
 		this.idAgencia =  idAgencia;
 		this.tipo = tipo;
 	}
+	public Conta() {		
+	}
 	
 	public String getCpfTitular() {
 		return cpfTitular;
