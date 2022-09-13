@@ -1,32 +1,21 @@
 package pessoal;
 
 public abstract class Funcionario extends Individuo {
-	private String cargo;
+	
 
 	public Funcionario() {
-		super();
-		
+		super();		
 	}
 
-	public Funcionario(String nome, String cpf, String senha) {
-		super(nome, cpf, senha);
-		
-	}
-
-	public String getCargo() {
-		return cargo;
-	}
-
-	public void setCargo(String cargo) {
-		this.cargo = cargo;
-	}
+	public Funcionario(String nome, String cpf, String senha, String cargo) {
+		super(nome, cpf, senha, cargo);		
+	}	
+	
 
 	@Override
 	public String toString() {
 		return "Nome: " + getNome()+ "\nCPF: "
 				+ getCpf()+"\nCargo: " + getCargo();
-	}
-		
-	
+	}	
 
 }

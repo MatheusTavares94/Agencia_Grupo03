@@ -2,8 +2,12 @@ package pessoal;
 
 public class Presidente extends Funcionario {
 
-	public Presidente(String nome, String cpf, String senha) {
-		super(nome, cpf, senha);
-		this.setCargo("Presidente");
+	public Presidente() {
+		super();
+		this.setCargo("PRESIDENTE");
+	}	
+	public Presidente(String nome, String cpf, String senha, String cargo) {
+		super(nome, cpf, senha, cargo);
+		this.setCargo("PRESIDENTE");
 	}
 }
