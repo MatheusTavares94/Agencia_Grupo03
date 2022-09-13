@@ -3,17 +3,19 @@ package pessoal;
 public abstract class Individuo {
 	private String nome;
 	private String cpf;
-	private String senha;	
+	private String senha;
+	private String cargo;
 	
 	public Individuo() {
 		super();
 	}
 	
-	public Individuo(String nome, String cpf, String senha) {
+	public Individuo(String nome, String cpf, String senha,String cargo ) {
 		super();
 		this.nome = nome;
 		this.cpf = cpf;
 		this.senha = senha;
+		this.cargo = cargo;
 	}
 
 	public String getNome() {
@@ -40,4 +42,12 @@ public abstract class Individuo {
 		this.senha = senha;
 	}
 
+	public String getCargo() {
+		return cargo;
+	}
+
+	public void setCargo(String cargo) {
+		this.cargo = cargo;
+	}
+	
 }
