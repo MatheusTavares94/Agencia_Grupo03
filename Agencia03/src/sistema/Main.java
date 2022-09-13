@@ -6,10 +6,11 @@ import java.util.Scanner;
 
 import pessoal.Cliente;
 import pessoal.Pessoa;
+import pessoal.Presidente;
 
-public class SistemaInterno {
+public class Main {
 
-	public static void main(String[] args, Object ArrayList) {
+	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 
 		System.out.println("=============Seja bem vindo(a)=============");
@@ -17,24 +18,28 @@ public class SistemaInterno {
 		System.out.println("=============Login no Sistema:=============");
 		System.out.println("Informe seu CPF ");
 		String cpf = scan.next();
-		System.out.print("Senha: ");
+		System.out.println("Senha: ");
 		String senha = scan.next();
 
 		List<Pessoa> cadastro = new ArrayList<Pessoa>();
 		cadastro.add(new Cliente("Dorival", "1234", "1234"));
 		cadastro.add(new Cliente("Arrascaeta de Souza", "1235", "1235"));
+		cadastro.add(new Presidente("Roniejo", "2000", "2001","PRESIDENTE"));
 		
 		for (Pessoa pessoa : cadastro) {
-			if (pessoa.getCpf().equals(cpf));{	
+			if (pessoa.getCpf().equals(cpf)){			
 				if (pessoa.getSenha().equals(senha)) {
-				System.out.println("Login Efetuado com sucesso");
+					System.out.println("Login Efetuado com sucesso");
+					//Menu()
+				} else {
+					System.out.println("Senha ou CPF inválidos");
 				}
-				else {
-				System.out.println("Senha ou cpf inválidos");	
-				}
-				
 			}
-
 		}
+		for (Pessoa pessoa : cadastro) {
+			pessoa.getCargo();
+		}
+		
 	}
+
 }
