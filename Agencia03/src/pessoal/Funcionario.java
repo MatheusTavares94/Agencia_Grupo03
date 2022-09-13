@@ -1,6 +1,6 @@
 package pessoal;
 
-public abstract class Funcionario extends Individuo {
+public abstract class Funcionario extends Pessoa {
 	
 
 	public Funcionario() {

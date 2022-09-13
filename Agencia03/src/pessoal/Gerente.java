@@ -12,5 +12,11 @@ public class Gerente extends Funcionario {
 		this.idAgencia = idAgencia;
 		this.setCargo("GERENTE");
 	}
+	public String getIdAgencia() {
+		return idAgencia;
+	}
+	public void setIdAgencia(String idAgencia) {
+		this.idAgencia = idAgencia;
+	}	
 
 }
