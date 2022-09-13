@@ -1,14 +1,16 @@
 package pessoal;
 
 public class Gerente extends Funcionario {
-
+	private String idAgencia;
+	
 	public Gerente(String cargo) {
 		super();
-		this.setCargo("Gerente");
+		this.setCargo("GERENTE");
 	}
-	public Gerente(String nome, String cpf, String senha) {
-		super(nome, cpf, senha);
-		this.setCargo("Gerente");
+	public Gerente(String nome, String cpf, String senha, String cargo, String idAgencia) {
+		super(nome, cpf, senha,cargo);
+		this.idAgencia = idAgencia;
+		this.setCargo("GERENTE");
 	}
 
 }
