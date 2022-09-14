@@ -7,8 +7,8 @@ public abstract class Funcionario extends Pessoa {
 		super();		
 	}
 
-	public Funcionario(String nome, String cpf, String senha, String cargo) {
-		super(nome, cpf, senha, cargo);		
+	public Funcionario(String nome, String cpf, String senha, String cargo, String idAgencia) {
+		super(nome, cpf, senha, cargo, idAgencia);		
 	}	
 	
 

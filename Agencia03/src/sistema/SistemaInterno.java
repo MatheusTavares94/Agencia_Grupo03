@@ -38,11 +38,11 @@ public class SistemaInterno {
 		String senha = scan.next();
 
 		List<Pessoa> cadastro = new ArrayList<Pessoa>();
-		cadastro.add(new Cliente("Dorival", "1234", "1234"));
-		cadastro.add(new Cliente("Arrascaeta de Souza", "1235", "1235"));
-		cadastro.add(new Presidente("Roniejo", "2000", "2001", "PRESIDENTE"));
+		cadastro.add(new Cliente("Dorival", "1234", "1234","0001"));
+		cadastro.add(new Cliente("Arrascaeta de Souza", "1235", "1235","0002"));
+		cadastro.add(new Presidente("Roniejo", "2000", "2001", "PRESIDENTE","0001"));
 		cadastro.add(new Gerente("Gabriel Henrique", "3000", "3001", "GERENTE", "0001"));
-		cadastro.add(new Diretor("Vinicius Barbosa", "4000", "4001", "DIRETOR"));
+		cadastro.add(new Diretor("Vinicius Barbosa", "4000", "4001", "DIRETOR","0002"));
 
 		Pessoa usuarioLogado = null;
 		for (Pessoa pessoa : cadastro) {
