@@ -1,16 +1,16 @@
 package pessoal;
 
-public abstract class Individuo {
+public abstract class Pessoa {
 	private String nome;
 	private String cpf;
 	private String senha;
 	private String cargo;
-	
-	public Individuo() {
+
+	public Pessoa() {
 		super();
 	}
-	
-	public Individuo(String nome, String cpf, String senha,String cargo ) {
+
+	public Pessoa(String nome, String cpf, String senha, String cargo) {
 		super();
 		this.nome = nome;
 		this.cpf = cpf;
@@ -49,5 +49,5 @@ public abstract class Individuo {
 	public void setCargo(String cargo) {
 		this.cargo = cargo;
 	}
-	
+
 }
