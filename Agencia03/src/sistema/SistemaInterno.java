@@ -29,10 +29,10 @@ public class SistemaInterno {
 + "	    ||  |_____|_|_|_|__|_|_|__|_|_|_|_____|  ||\r\n"
 + "	 ~ ~^^ @@@@@@@@@@@@@@/=======\\@@@@@@@@@@@@@@ ^^~ ~\r\n"
 + "	      ^~^~                                ~^~^");
-		System.out.println("=============Seja bem vindo(a)=============");
-		System.out.println("===========================================");
-		System.out.println("=============Login no Sistema:=============");
-		System.out.println("Informe seu CPF ");
+		System.out.println("========================Seja bem vindo(a)========================");
+		System.out.println("=================================================================");
+		System.out.println("========================Login no Sistema:========================");
+		System.out.println("\nInforme seu CPF ");
 		String cpf = scan.next();
 		System.out.println("Senha: ");
 		String senha = scan.next();
@@ -56,16 +56,19 @@ public class SistemaInterno {
 		} else {
 			System.out.println("Login efetuado com sucesso!");
 			if (usuarioLogado.getCargo().equalsIgnoreCase(pessoasEnum.CLIENTE.name())) {
-				System.out.println("É um cliente");
+				MenuCliente menuCliente = new MenuCliente();
+				menuCliente.menuCliente();
 
 			} else if (usuarioLogado.getCargo().equalsIgnoreCase(pessoasEnum.PRESIDENTE.name())) {
 				System.out.println("É um presidente");
 
 			} else if (usuarioLogado.getCargo().equalsIgnoreCase(pessoasEnum.GERENTE.name())) {
-				System.out.println("É um gerente");
+//				MenuGerente menuGerente = new MenuGerente();
+//				menuGerente.menuGerente();
 
 			} else if (usuarioLogado.getCargo().equalsIgnoreCase(pessoasEnum.DIRETOR.name())) {
-				System.out.println("É um diretor");
+				MenuDiretor menuDiretor = new MenuDiretor();
+				menuDiretor.menuDiretor();
 			}
 		}
 	}

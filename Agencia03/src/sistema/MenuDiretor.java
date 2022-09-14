@@ -2,10 +2,10 @@ package sistema;
 
 import java.util.Scanner;
 
-public class MenuCliente {
+public class MenuDiretor {
 	Scanner scan = new Scanner(System.in);
 
-	public void menuCliente() {
+	public void menuDiretor() {
 		int opcao;
 		
 		do {
@@ -61,7 +61,7 @@ public class MenuCliente {
 			case 3: //transferencia()				
 			break;
 			
-			case 4: menuCliente();				
+			case 4: menuDiretor();				
 			break;
 			
 			case 5: System.exit(0);				
@@ -83,8 +83,9 @@ public class MenuCliente {
 			System.out.println(" 1 - Mostrar Saldo");
 			System.out.println(" 2 - Mostrar relatório da Conta Corrente");
 			System.out.println(" 3 - Simulação de rendimento da Conta Poupança");
-			System.out.println(" 4 - Voltar ao menu anterior");
-			System.out.println(" 5 - Finalizar");
+			System.out.println(" 4 - Relatório dos Clientes");
+			System.out.println(" 5 - Voltar ao menu anterior");
+			System.out.println(" 6 - Finalizar");
 			System.out.println("========Digite a opção escolhida=======");
 			opcao = scan.nextInt();
 			
@@ -99,11 +100,13 @@ public class MenuCliente {
 			case 3: simulaRendimento();			
 			break;
 			
-			case 4: menuCliente();				
+			case 4: //relatorioClientes();			
 			break;
 			
-			case 5: System.exit(0);				
+			case 5: menuDiretor();				
 			break;
+			
+			case 6: System.exit(0);
 			
 			default: 
 				System.out.println("Opção inválida!\nDigite novamente");		
@@ -125,4 +128,5 @@ public class MenuCliente {
 		
 }
 		
+
 
