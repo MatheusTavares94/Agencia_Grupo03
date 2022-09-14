@@ -5,12 +5,12 @@ public abstract class Pessoa {
 	private String cpf;
 	private String senha;
 	private String cargo;
-	
+
 	public Pessoa() {
 		super();
 	}
-	
-	public Pessoa(String nome, String cpf, String senha,String cargo ) {
+
+	public Pessoa(String nome, String cpf, String senha, String cargo) {
 		super();
 		this.nome = nome;
 		this.cpf = cpf;
@@ -49,5 +49,5 @@ public abstract class Pessoa {
 	public void setCargo(String cargo) {
 		this.cargo = cargo;
 	}
-	
+
 }
