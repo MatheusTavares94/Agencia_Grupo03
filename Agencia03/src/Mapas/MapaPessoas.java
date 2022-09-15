@@ -16,7 +16,7 @@ import pessoal.Presidente;
 
 public class MapaPessoas {
 	
-	public static void main(String[] args) {
+	public void mapaPessoas() {
 		
 		try (BufferedReader ler = new BufferedReader(new FileReader("MapaPessoas.txt"))) {
 			String linha;
@@ -26,30 +26,31 @@ public class MapaPessoas {
 			while ((linha = ler.readLine()) != null && !(linha.isEmpty())) {				
 
 				String[] s = linha.split(",");
-
-				String nome = s[0];
-				String cpf = s[1];
-				String senha = s[2];				
-				String cargo = s[3];
+				
+				String cargo = s[0];
+				String nome = s[1];
+				String cpf = s[2];
+				String senha = s[3];			
 				String idAgencia = s[4];
 
 				if (cargo.equalsIgnoreCase(pessoasEnum.CLIENTE.name())) {
-					Cliente cliente = new Cliente(nome, cpf, senha, cargo, idAgencia);
+					Cliente cliente = new Cliente(cargo, nome, cpf, senha, idAgencia);
 					mapa.put(cpf, cliente);
 					System.out.println(cliente.getNome());
 				}
 				else if (cargo.equalsIgnoreCase(pessoasEnum.DIRETOR.name())) {
-					Diretor diretor = new Diretor(nome, cpf, senha, cargo, idAgencia);
+					Diretor diretor = new Diretor(cargo, nome, cpf, senha, idAgencia);
 					mapa.put(cpf, diretor);									
 				}
 				else if (cargo.equalsIgnoreCase(pessoasEnum.GERENTE.name())) {
-					Gerente gerente = new Gerente(nome, cpf, senha, cargo, idAgencia);
+					Gerente gerente = new Gerente(cargo, nome, cpf, senha, idAgencia);
 					mapa.put(cpf, gerente);									
 				}
 				else if (cargo.equalsIgnoreCase(pessoasEnum.PRESIDENTE.name())) {
-					Presidente presidente = new Presidente(nome, cpf, senha, cargo, idAgencia);
+					Presidente presidente = new Presidente(cargo, nome, cpf, senha, idAgencia);
 					mapa.put(cpf, presidente);
 					System.out.println(presidente.getNome()+" cargo "+presidente.getCargo());
+					
 				}				
 			}
 			ler.close();
@@ -59,6 +60,8 @@ public class MapaPessoas {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			
+			
 		}
 	} 
 }
