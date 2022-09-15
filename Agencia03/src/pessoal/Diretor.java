@@ -6,8 +6,8 @@ public class Diretor extends Funcionario {
 		super();
 		this.setCargo("DIRETOR");
 	}
-	public Diretor(String nome, String cpf, String senha, String cargo) {
-		super(nome, cpf, senha, cargo);
+	public Diretor(String cargo, String nome, String cpf, String senha, String idAgencia) {
+		super(cargo, nome, cpf, senha, idAgencia);
 		this.setCargo("DIRETOR");
 	}
 }

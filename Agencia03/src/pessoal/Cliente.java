@@ -6,8 +6,8 @@ public class Cliente extends Pessoa {
 		super();
 		this.setCargo("CLIENTE");	
 	}
-	public Cliente(String nome, String cpf, String senha) {
-		super(nome, cpf, senha, senha);
+	public Cliente(String cargo, String nome, String cpf, String senha, String idAgencia) {
+		super(cargo, nome, cpf, senha, idAgencia);
 		this.setCargo("CLIENTE");		
 	}
 }		

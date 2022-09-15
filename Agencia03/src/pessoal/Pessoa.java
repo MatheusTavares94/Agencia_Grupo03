@@ -10,7 +10,7 @@ public abstract class Pessoa {
 		super();
 	}
 
-	public Pessoa(String nome, String cpf, String senha, String cargo) {
+	public Pessoa(String cargo, String nome, String cpf, String senha, String idAgencia) {
 		super();
 		this.nome = nome;
 		this.cpf = cpf;
