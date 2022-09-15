@@ -6,8 +6,8 @@ public class Presidente extends Funcionario {
 		super();
 		this.setCargo("PRESIDENTE");
 	}	
-	public Presidente(String nome, String cpf, String senha, String cargo, String idAgencia) {
-		super(nome, cpf, senha, cargo, idAgencia);
+	public Presidente(String cargo, String nome, String cpf, String senha, String idAgencia) {
+		super(cargo, nome, cpf, senha, idAgencia);
 		this.setCargo("PRESIDENTE");
 	}
 }
