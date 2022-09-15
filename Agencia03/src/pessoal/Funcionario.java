@@ -17,5 +17,4 @@ public abstract class Funcionario extends Pessoa {
 		return "Nome: " + getNome()+ "\nCPF: "
 				+ getCpf()+"\nCargo: " + getCargo();
 	}	
-
 }
