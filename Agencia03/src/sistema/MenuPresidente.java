@@ -1,15 +1,13 @@
 package sistema;
 
-import java.util.Map;
 import java.util.Scanner;
 
-import pessoal.Pessoa;
 import servicos.Conta;
 
 public class MenuPresidente {
 	Scanner scan = new Scanner(System.in);
 
-	public void menuPresidente(Pessoa usuario, Conta conta, Map<String, Conta> mc) {
+	public void menuPresidente() {
 		int opcao;
 
 		do {
@@ -24,11 +22,11 @@ public class MenuPresidente {
 			switch (opcao) {
 
 			case 1:
-				menuMovimentacoes(usuario, conta, mc);
+				menuMovimentacoes();
 				break;
 
 			case 2:
-				menuRelatorios(usuario, conta, mc);
+				menuRelatorios();
 				break;
 
 			case 3:
@@ -41,7 +39,7 @@ public class MenuPresidente {
 		} while (opcao != 3);
 	}
 
-	public void menuMovimentacoes(Pessoa usuario, Conta conta, Map<String, Conta> mc) {
+	public void menuMovimentacoes() {
 		int opcao;
 
 		do {
@@ -60,15 +58,13 @@ public class MenuPresidente {
 			case 1:
 				System.out.println("Digite o quanto deseja sacar:");
 				double saque = scan.nextDouble();
-				conta.sacar(saque);
-				System.out.println("Saque realizado com sucesso \nO novo saldo é R$"+conta.getSaldo());
+				variavel.sacar(saque); // variavel a ser criada
 				break;
 
 			case 2:
 				System.out.println("Digite o quanto deseja depositar:");
 				double deposito = scan.nextDouble();
-				conta.depositar(deposito);
-				System.out.println("Depósito realizado com sucesso \nO novo saldo é R$"+conta.getSaldo());
+				variavel.depositar(deposito); // variavel a ser criada
 				break;
 
 			case 3:
@@ -76,17 +72,11 @@ public class MenuPresidente {
 				double valorTransferir = scan.nextDouble();
 				System.out.println("Digite o CPF da conta destino:");
 				String contaTransferir = scan.next();
-				if(mc.containsKey(contaTransferir) == true) {
-					Conta contaDestino = mc.get(contaTransferir);
-					conta.transferir(contaDestino, valorTransferir);
-				}
-				else {
-					System.out.println("Não é possível realizar a operação");
-				}
+				variavel.transferir(contaTransferir, valorTransferir); // variavel a ser criada
 				break;
 
 			case 4:
-				menuPresidente(usuario, conta, mc);
+				menuPresidente();
 				break;
 
 			case 5:
@@ -100,7 +90,7 @@ public class MenuPresidente {
 
 	}
 
-	public void menuRelatorios(Pessoa usuario, Conta conta, Map<String, Conta> mc) {
+	public void menuRelatorios() {
 		int opcao;
 
 		do {
@@ -119,7 +109,7 @@ public class MenuPresidente {
 			switch (opcao) {
 
 			case 1:
-				System.out.println("Seu saldo é de R$"+ conta.getSaldo()); 
+				System.out.println("Seu saldo é de: " + (Conta.getSaldo()));
 				break;
 
 			case 2: // relatorioCC();
@@ -136,7 +126,7 @@ public class MenuPresidente {
 				break;
 
 			case 6:
-				menuPresidente(usuario, conta, mc);
+				menuPresidente();
 				break;
 
 			case 7:
