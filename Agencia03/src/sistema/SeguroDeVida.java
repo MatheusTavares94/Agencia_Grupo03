@@ -6,7 +6,7 @@ public class SeguroDeVida {
 
 	double saldo;
 
-	public void seguroDeVida(double valor) {
+	public void contratarSeguro(double valor) {
 		Scanner scan = new Scanner(System.in);
 
 		System.out.println("Insira o valor a ser segurado:");
