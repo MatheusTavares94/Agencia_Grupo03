@@ -7,12 +7,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import enums.pessoasEnum;
-import pessoal.Cliente;
-import pessoal.Diretor;
-import pessoal.Gerente;
-import pessoal.Pessoa;
-import pessoal.Presidente;
+import enums.contasEnum;
 import servicos.Conta;
 import servicos.ContaCorrente;
 import servicos.ContaPoupanca;
@@ -34,20 +29,18 @@ public class MapaContas {
 				String idAgencia = s[2];
 				String tipo = s[3];
 
-				if (tipo.equalsIgnoreCase(pessoasEnum.CONTACORRENTE.name())) {
+				if (tipo.equalsIgnoreCase(contasEnum.CORRENTE.name())) {
 					ContaCorrente cc = new ContaCorrente(cpf, saldo, idAgencia, tipo);
 					mapa.put(cpf, cc);
-				} else if (tipo.equalsIgnoreCase(pessoasEnum.CONTAPOUPANCA.name())) {
+				} else if (tipo.equalsIgnoreCase(contasEnum.POUPANCA.name())) {
 					ContaPoupanca cp = new ContaPoupanca(cpf, saldo, idAgencia, tipo);
 					mapa.put(cpf, cp);
 				}
 			}
 			ler.close();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 
 		}

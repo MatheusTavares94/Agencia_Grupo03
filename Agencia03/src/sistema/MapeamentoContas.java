@@ -35,10 +35,10 @@ public class MapeamentoContas {
 			String idAgencia = s[2];
 			String tipo = s[3];
 
-			if (tipo.equalsIgnoreCase(contasEnum.CONTACORRENTE.name())) {
+			if (tipo.equalsIgnoreCase(contasEnum.CORRENTE.name())) {
 				Conta cc = new ContaCorrente(cpf, saldo, idAgencia, tipo);
 				mapa.put(cpf, cc);
-			} else if (tipo.equalsIgnoreCase(contasEnum.CONTAPOUPANCA.name())) {
+			} else if (tipo.equalsIgnoreCase(contasEnum.POUPANCA.name())) {
 				Conta cp = new ContaPoupanca(cpf, saldo, idAgencia ,tipo);
 				mapa.put(cpf, cp);
 	
