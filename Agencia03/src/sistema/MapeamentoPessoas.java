@@ -12,7 +12,7 @@ import pessoal.Gerente;
 import pessoal.Pessoa;
 import pessoal.Presidente;
 
-public class Mapeamento {
+public class MapeamentoPessoas {
 	static Map<String, Pessoa> mapa = new HashMap<>();
 
 	public static void Ler(String path) throws IOException {
