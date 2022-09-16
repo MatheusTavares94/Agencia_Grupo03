@@ -47,19 +47,19 @@ public class SistemaInterno {
 				Conta contaUsuario = MapeamentoContas.mapa.get(Cpf);
 				if (usuario.getCargo().equalsIgnoreCase(pessoasEnum.CLIENTE.name())) {
 					MenuCliente menuCliente = new MenuCliente();
-					menuCliente.menuCliente();
+					menuCliente.menuCliente(contaUsuario, usuario, mc);
 
 				} else if (usuario.getCargo().equalsIgnoreCase(pessoasEnum.PRESIDENTE.name())) {
 					MenuPresidente menuPresidente = new MenuPresidente();
-					menuPresidente.menuPresidente();
+					menuPresidente.menuPresidente(contaUsuario, usuario, mc);
 
 				} else if (usuario.getCargo().equalsIgnoreCase(pessoasEnum.GERENTE.name())) {
 					MenuGerente menuGerente = new MenuGerente();
-					menuGerente.menuGerente();
+					menuGerente.menuGerente(contaUsuario, usuario, mc);
 
 				} else if (usuario.getCargo().equalsIgnoreCase(pessoasEnum.DIRETOR.name())) {
 					MenuDiretor menuDiretor = new MenuDiretor();
-					menuDiretor.menuDiretor();
+					menuDiretor.menuDiretor(contaUsuario, usuario, mc);
 				}
 			} else
 				System.out.println(
