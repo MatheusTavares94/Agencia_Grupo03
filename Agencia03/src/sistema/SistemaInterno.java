@@ -1,7 +1,12 @@
 package sistema;
 
 import java.io.IOException;
+import java.util.Map;
 import java.util.Scanner;
+
+import Enums.pessoasEnum;
+import pessoal.Pessoa;
+import servicos.Conta;
 
 public class SistemaInterno {
 
@@ -26,15 +31,36 @@ public class SistemaInterno {
 
 		String Cpf = Inputcpf();
 		String Senha = Inputsenha();
-
+		
 		Mapeamento
 				.Ler("C:\\Users\\Matheus\\Documents\\Trabalho POO\\Agencia_Grupo03\\Agencia03\\src\\file\\PESSOAS.txt");
-		
+		Map<String, Pessoa> mp = Mapeamento.mapa;
+		MapeamentoContas
+				.Ler("C:\\Users\\Matheus\\Documents\\Trabalho POO\\Agencia_Grupo03\\Agencia03\\src\\file\\CONTAS.txt");
+		Map<String, Conta> mc = MapeamentoContas.mapa;
 		String resposta;
 		do {
 			if (Mapeamento.mapa.containsKey(Cpf) && Mapeamento.mapa.get(Cpf).getSenha().equals(Senha)) {
 				System.out.println("Olá, " + Mapeamento.mapa.get(Cpf).getNome());
 				resposta = "n";
+				Pessoa usuario = Mapeamento.mapa.get(Cpf);
+				Conta contaUsuario = MapeamentoContas.mapa.get(Cpf);
+				if (usuario.getCargo().equalsIgnoreCase(pessoasEnum.CLIENTE.name())) {
+					MenuCliente menuCliente = new MenuCliente();
+					menuCliente.menuCliente();
+
+				} else if (usuario.getCargo().equalsIgnoreCase(pessoasEnum.PRESIDENTE.name())) {
+					MenuPresidente menuPresidente = new MenuPresidente();
+					menuPresidente.menuPresidente();
+
+				} else if (usuario.getCargo().equalsIgnoreCase(pessoasEnum.GERENTE.name())) {
+					MenuGerente menuGerente = new MenuGerente();
+					menuGerente.menuGerente();
+
+				} else if (usuario.getCargo().equalsIgnoreCase(pessoasEnum.DIRETOR.name())) {
+					MenuDiretor menuDiretor = new MenuDiretor();
+					menuDiretor.menuDiretor();
+				}
 			} else
 				System.out.println(
 						"Senha ou CPF incorreto!\n\nDeseja tentar novamente? Digite \"s\" para sim ou \"n\" para encerrar\n");
