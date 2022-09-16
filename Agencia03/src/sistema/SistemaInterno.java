@@ -28,8 +28,8 @@ public class SistemaInterno {
 		System.out.println("=================================================================");
 		System.out.println("========================Login no Sistema:========================");
 
-		MapeamentoPessoas
-				.Ler("C:\\Users\\Matheus\\Documents\\Trabalho POO\\Agencia_Grupo03\\Agencia03\\src\\file\\PESSOAS.txt");
+		MapeamentoPessoas.Ler("C:\\Serratec\\Trabalho POO\\Agencia_Grupo03\\Agencia03\\src\\file\\PESSOAS.txt");
+		MapeamentoContas.Ler("C:\\Serratec\\Trabalho POO\\Agencia_Grupo03\\Agencia03\\src\\file\\CONTAS.txt");
 		Map<String, Pessoa> mp = MapeamentoPessoas.mapa;
 		Map<String, Conta> mc = MapeamentoContas.mapa;
 		
