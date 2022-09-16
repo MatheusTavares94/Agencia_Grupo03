@@ -10,4 +10,5 @@ public class Presidente extends Funcionario {
 		super(cargo, nome, cpf, senha, idAgencia);
 		this.setCargo("PRESIDENTE");
 	}
+	
 }

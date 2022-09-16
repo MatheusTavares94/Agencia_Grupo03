@@ -13,7 +13,7 @@ import pessoal.Pessoa;
 import pessoal.Presidente;
 
 public class Mapeamento {
-	public static void Ler(String path, String cpf, String senha) throws IOException {
+	public static void Ler(String path) throws IOException {
 		BufferedReader buffRead = new BufferedReader(new FileReader(path));
 		String linha = "";
 		while ((linha = buffRead.readLine()) != null) {
