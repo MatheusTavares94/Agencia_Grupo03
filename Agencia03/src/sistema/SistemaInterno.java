@@ -1,6 +1,11 @@
 package sistema;
 
 import java.io.IOException;
+import java.util.Map;
+
+import enums.pessoasEnum;
+import pessoal.Pessoa;
+import servicos.Conta;
 
 public class SistemaInterno {
 
@@ -25,10 +30,24 @@ public class SistemaInterno {
 
 		MapeamentoPessoas
 				.Ler("C:\\Users\\Matheus\\Documents\\Trabalho POO\\Agencia_Grupo03\\Agencia03\\src\\file\\PESSOAS.txt");
-
+		Map<String, Pessoa> mp = MapeamentoPessoas.mapa;
+		Map<String, Conta> mc = MapeamentoContas.mapa;
+		
 		Autenticar.autenticar();
-		System.out.println(Autenticar.getUsuario());
+		System.out.println(mc);
+		
+		if (Autenticar.getUsuario().getCargo().equals(pessoasEnum.CLIENTE.name())) {
+			MenuCliente.menuCliente(Autenticar.getUsuario(), Autenticar.getConta(), mc);
+		}
+		else if (Autenticar.getUsuario().getCargo().equals(pessoasEnum.GERENTE.name())) {
+			MenuGerente.menuGerente(Autenticar.getUsuario(), Autenticar.getConta(), mc);
+		}
+		else if (Autenticar.getUsuario().getCargo().equals(pessoasEnum.DIRETOR.name())) {
+			MenuDiretor.menuDiretor(Autenticar.getUsuario(), Autenticar.getConta(), mc);
+		}
+		else if (Autenticar.getUsuario().getCargo().equals(pessoasEnum.PRESIDENTE.name())) {
+			MenuPresidente.menuPresidente(Autenticar.getUsuario(), Autenticar.getConta(), mc);
+		}
 	}
 
-	
 }

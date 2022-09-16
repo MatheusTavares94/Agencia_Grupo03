@@ -7,9 +7,9 @@ import pessoal.Pessoa;
 import servicos.Conta;
 
 public class MenuPresidente {
-	Scanner scan = new Scanner(System.in);
+	static Scanner scan = new Scanner(System.in);
 
-	public void menuPresidente(Pessoa usuario, Conta conta, Map<String, Conta> mc) {
+	public static void menuPresidente(Pessoa usuario, Conta conta, Map<String, Conta> mc) {
 		int opcao;
 
 		do {
@@ -41,7 +41,7 @@ public class MenuPresidente {
 		} while (opcao != 3);
 	}
 
-	public void menuMovimentacoes(Pessoa usuario, Conta conta, Map<String, Conta> mc) {
+	public static void menuMovimentacoes(Pessoa usuario, Conta conta, Map<String, Conta> mc) {
 		int opcao;
 
 		do {
@@ -100,7 +100,7 @@ public class MenuPresidente {
 
 	}
 
-	public void menuRelatorios(Pessoa usuario, Conta conta, Map<String, Conta> mc) {
+	public static void menuRelatorios(Pessoa usuario, Conta conta, Map<String, Conta> mc) {
 		int opcao;
 
 		do {
@@ -150,7 +150,7 @@ public class MenuPresidente {
 
 	}
 
-	public void simulaRendimento() {
+	public static void simulaRendimento() {
 		double valor;
 		int meses;
 		System.out.println("Insira o valor para a simulação:");

@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import Enums.pessoasEnum;
+import enums.pessoasEnum;
 import pessoal.Cliente;
 import pessoal.Diretor;
 import pessoal.Gerente;
