@@ -1,6 +1,7 @@
 package sistema;
 
 import java.util.Scanner;
+import servicos.Conta;
 
 public class MenuCliente {
 	Scanner scan = new Scanner(System.in);
@@ -12,7 +13,7 @@ public class MenuCliente {
 			System.out.println("");
 			System.out.println("====================================");
 			System.out.println(" 1 - Movimentações e informações da conta.");
-			System.out.println(" 2 - Relátorios.");
+			System.out.println(" 2 - Relatórios.");
 			System.out.println(" 3 - Sair");			
 			System.out.println("========Digite a opção escolhida=======");
 			opcao = scan.nextInt();
@@ -52,13 +53,24 @@ public class MenuCliente {
 			
 			switch(opcao) {
 			
-			case 1: //saque();
+			case 1:
+				System.out.println("Digite o quanto deseja sacar:");
+				double saque = scan.nextDouble();
+				variavel.sacar(saque); //variavel a ser criada
 			break;
 				
-			case 2: //deposito();
+			case 2:
+				System.out.println("Digite o quanto deseja depositar:");
+				double deposito = scan.nextDouble();
+				variavel.depositar(deposito); //variavel a ser criada
 			break;
 			
-			case 3: //transferencia()				
+			case 3:
+				System.out.println("Digite o quanto deseja transferir:");
+				double valorTransferir = scan.nextDouble();
+				System.out.println("Digite o cpf da conta destino:");
+				String contaTransferir = scan.next();
+				variavel.transferir(contaTransferir,valorTransferir); //variavel a ser criada
 			break;
 			
 			case 4: menuCliente();				
@@ -90,10 +102,12 @@ public class MenuCliente {
 			
 			switch(opcao) {
 			
-			case 1: //conta.getSaldo();
+			case 1:
+				System.out.println("Seu saldo é de: " + (Conta.getSaldo(()));
 			break;
 				
 			case 2: //Relatorio();
+				
 			break;
 			
 			case 3: simulaRendimento();			
