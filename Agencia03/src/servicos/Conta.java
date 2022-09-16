@@ -65,7 +65,7 @@ public abstract class Conta {
 		else if (this.saldo >= valor + 0.20) {
 			this.saldo = this.saldo - valor-0.20;
 			destino.saldo = destino.saldo + valor;
-			System.out.println("Transferência realizado com sucesso!\n");
+			System.out.println("Transferência realizada com sucesso!\n");
 		} else {
 			System.out.println("Não há saldo suficiente para transferência\n");
 		}
