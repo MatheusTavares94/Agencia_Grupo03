@@ -1,13 +1,16 @@
 package sistema;
 
+import java.util.Map;
 import java.util.Scanner;
+
+import pessoal.Pessoa;
 import servicos.Conta;
 
 public class MenuCliente {
-	Scanner scan = new Scanner(System.in);
-	SeguroDeVida seguro = new SeguroDeVida();
+	static Scanner scan = new Scanner(System.in);
+	static SeguroDeVida seguro = new SeguroDeVida();
 
-	public void menuCliente() {
+	public static void menuCliente(Pessoa usuario, Conta conta, Map<String, Conta> mc) {
 		int opcao;
 
 		do {
@@ -22,11 +25,11 @@ public class MenuCliente {
 			switch (opcao) {
 
 			case 1:
-				menuMovimentacoes();
+				menuMovimentacoes(usuario, conta, mc);
 				break;
 
 			case 2:
-				menuRelatorios();
+				menuRelatorios(usuario, conta, mc);
 				break;
 
 			case 3:
@@ -39,7 +42,7 @@ public class MenuCliente {
 		} while (opcao != 3);
 	}
 
-	public void menuMovimentacoes() {
+	public static void menuMovimentacoes(Pessoa usuario, Conta conta, Map<String, Conta> mc) {
 		int opcao;
 
 		do {
@@ -58,13 +61,15 @@ public class MenuCliente {
 			case 1:
 				System.out.println("Digite o quanto deseja sacar:");
 				double saque = scan.nextDouble();
-				variavel.sacar(saque); // variavel a ser criada
+				conta.sacar(saque);
+				System.out.println("Saque realizado com sucesso \nO novo saldo é R$" + conta.getSaldo());
 				break;
 
 			case 2:
 				System.out.println("Digite o quanto deseja depositar:");
 				double deposito = scan.nextDouble();
-				variavel.depositar(deposito); // variavel a ser criada
+				conta.depositar(deposito);
+				System.out.println("Depósito realizado com sucesso \nO novo saldo é R$" + conta.getSaldo());
 				break;
 
 			case 3:
@@ -72,11 +77,16 @@ public class MenuCliente {
 				double valorTransferir = scan.nextDouble();
 				System.out.println("Digite o CPF da conta destino:");
 				String contaTransferir = scan.next();
-				variavel.transferir(contaTransferir, valorTransferir); // variavel a ser criada
+				if (mc.containsKey(contaTransferir) == true) {
+					Conta contaDestino = mc.get(contaTransferir);
+					conta.transferir(contaDestino, valorTransferir);
+				} else {
+					System.out.println("Não é possível realizar a operação");
+				}
 				break;
 
 			case 4:
-				menuCliente();
+				menuCliente(usuario, conta, mc);
 				break;
 
 			case 5:
@@ -90,9 +100,9 @@ public class MenuCliente {
 
 	}
 
-	public void menuRelatorios() {
-		int opcao;								
-		
+	public static void menuRelatorios(Pessoa usuario, Conta conta, Map<String, Conta> mc) {
+		int opcao;
+
 		do {
 			System.out.println("");
 			System.out.println("====================================");
@@ -104,37 +114,41 @@ public class MenuCliente {
 			System.out.println(" 6 - Finalizar");
 			System.out.println("========Digite a opção escolhida=======");
 			opcao = scan.nextInt();
-			
-			switch(opcao) {
-			
+
+			switch (opcao) {
+
 			case 1:
-				System.out.println("Seu saldo é de: " + (Conta.getSaldo()));
-			break;
-				
-			case 2: //relatorioCC();
-				
-			break;
-			
-			case 3: simulaRendimento();			
-			break;
-			
-			case 4: seguro.contratarSeguro(opcao);			
-			break;
-			
-			case 5: menuCliente();				
-			break;
-			
-			case 6: System.exit(0);				
-			break;
-			
-			default: 
-				System.out.println("Opção inválida!\nDigite novamente.");		
-			}			
-		}while(opcao != 5);
-		
+				System.out.println("Seu saldo é de R$" + conta.getSaldo());
+				break;
+
+			case 2: // relatorioCC();
+
+				break;
+
+			case 3:
+				simulaRendimento();
+				break;
+
+			case 4:
+				seguro.contratarSeguro(opcao);
+				break;
+
+			case 5:
+				menuCliente(usuario, conta, mc);
+				break;
+
+			case 6:
+				System.exit(0);
+				break;
+
+			default:
+				System.out.println("Opção inválida!\nDigite novamente.");
+			}
+		} while (opcao != 5);
+
 	}
 
-	public void simulaRendimento() {
+	public static void simulaRendimento() {
 		double valor;
 		int meses;
 		System.out.println("Insira o valor para a simulação:");
