@@ -13,6 +13,8 @@ import pessoal.Pessoa;
 import pessoal.Presidente;
 
 public class Mapeamento {
+	static Map<String, Pessoa> mapa = new HashMap<>();
+
 	public static void Ler(String path) throws IOException {
 		BufferedReader buffRead = new BufferedReader(new FileReader(path));
 		String linha = "";
@@ -25,7 +27,7 @@ public class Mapeamento {
 	}
 
 	public static void usuarioLogado(String UsuarioLogado) {
-		Map<String, Pessoa> mapa = new HashMap<>();
+
 		String s[] = UsuarioLogado.split(",");
 
 		String cargo = s[0];
@@ -33,7 +35,6 @@ public class Mapeamento {
 		String CPF = s[2];
 		String SENHA = s[3];
 		String idAgencia = s[4];
-		
 
 		if (cargo.equalsIgnoreCase(pessoasEnum.CLIENTE.name())) {
 			Pessoa cliente = new Cliente(cargo, nome, CPF, SENHA, idAgencia);
@@ -48,7 +49,6 @@ public class Mapeamento {
 			Pessoa presidente = new Presidente(cargo, nome, CPF, SENHA, idAgencia);
 			mapa.put(CPF, presidente);
 
-		}System.out.println(mapa.values());
-
+		}
 	}
 }
