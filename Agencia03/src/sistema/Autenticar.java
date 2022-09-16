@@ -1,11 +1,16 @@
 package sistema;
 
 import java.util.Scanner;
-
+import servicos.Conta;
 import pessoal.Pessoa;
 
 public class Autenticar {
 	static Pessoa Usuario;
+	static Conta Conta;
+	
+	public static Conta getConta() {
+		return Conta;
+	}
 	
 	public static Pessoa getUsuario() {
 		return Usuario;
@@ -23,6 +28,7 @@ public class Autenticar {
 			if (MapeamentoPessoas.mapa.containsKey(cpf) && MapeamentoPessoas.mapa.get(cpf).getSenha().equals(senha)) {
 				System.out.println("Olá, " + MapeamentoPessoas.mapa.get(cpf).getNome());
 				Usuario = MapeamentoPessoas.mapa.get(cpf);
+				Conta = MapeamentoContas.mapa.get(cpf);
 				break;
 
 			} else {
