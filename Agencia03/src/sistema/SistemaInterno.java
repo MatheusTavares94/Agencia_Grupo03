@@ -3,7 +3,7 @@ package sistema;
 import java.io.IOException;
 import java.util.Map;
 
-import enums.pessoasEnum;
+import enums.PessoasEnum;
 import pessoal.Pessoa;
 import servicos.Conta;
 
@@ -36,20 +36,20 @@ public class SistemaInterno {
 		
 		Autenticar.autenticar();
 		
-		if (Autenticar.getUsuario().getCargo().equals(pessoasEnum.CLIENTE.name())) {
+		if (Autenticar.getUsuario().getCargo().equals(PessoasEnum.CLIENTE.name())) {
 			MenuCliente.menuCliente(Autenticar.getUsuario(), Autenticar.getConta(), mc);
 		}
-		else if (Autenticar.getUsuario().getCargo().equals(pessoasEnum.GERENTE.name())) {
+		else if (Autenticar.getUsuario().getCargo().equals(PessoasEnum.GERENTE.name())) {
 			MenuGerente.menuGerente(Autenticar.getUsuario(), Autenticar.getConta(), mc);
 		}
-		else if (Autenticar.getUsuario().getCargo().equals(pessoasEnum.DIRETOR.name())) {
+		else if (Autenticar.getUsuario().getCargo().equals(PessoasEnum.DIRETOR.name())) {
 			MenuDiretor.menuDiretor(Autenticar.getUsuario(), Autenticar.getConta(), mc);
 		}
-		else if (Autenticar.getUsuario().getCargo().equals(pessoasEnum.PRESIDENTE.name())) {
+		else if (Autenticar.getUsuario().getCargo().equals(PessoasEnum.PRESIDENTE.name())) {
 			MenuPresidente.menuPresidente(Autenticar.getUsuario(), Autenticar.getConta(), mc);
 		}
 		
-		Relatório.Escrever("C:\\Users\\Matheus\\Documents\\Trabalho POO\\Agencia_Grupo03\\Agencia03\\src\\file\\RELATORIO.txt");
+		Relatorio.Escrever("C:\\Users\\Matheus\\Documents\\Trabalho POO\\Agencia_Grupo03\\Agencia03\\src\\file\\RELATORIO.txt");
 		
 	}
 
