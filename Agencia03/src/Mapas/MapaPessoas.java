@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import Enums.pessoasEnum;
+import enums.PessoasEnum;
 import pessoal.Cliente;
 import pessoal.Diretor;
 import pessoal.Gerente;
@@ -33,20 +33,20 @@ public class MapaPessoas {
 				String senha = s[3];			
 				String idAgencia = s[4];
 
-				if (cargo.equalsIgnoreCase(pessoasEnum.CLIENTE.name())) {
+				if (cargo.equalsIgnoreCase(PessoasEnum.CLIENTE.name())) {
 					Cliente cliente = new Cliente(cargo, nome, cpf, senha, idAgencia);
 					mapa.put(cpf, cliente);
 					System.out.println(cliente.getNome());
 				}
-				else if (cargo.equalsIgnoreCase(pessoasEnum.DIRETOR.name())) {
+				else if (cargo.equalsIgnoreCase(PessoasEnum.DIRETOR.name())) {
 					Diretor diretor = new Diretor(cargo, nome, cpf, senha, idAgencia);
 					mapa.put(cpf, diretor);									
 				}
-				else if (cargo.equalsIgnoreCase(pessoasEnum.GERENTE.name())) {
+				else if (cargo.equalsIgnoreCase(PessoasEnum.GERENTE.name())) {
 					Gerente gerente = new Gerente(cargo, nome, cpf, senha, idAgencia);
 					mapa.put(cpf, gerente);									
 				}
-				else if (cargo.equalsIgnoreCase(pessoasEnum.PRESIDENTE.name())) {
+				else if (cargo.equalsIgnoreCase(PessoasEnum.PRESIDENTE.name())) {
 					Presidente presidente = new Presidente(cargo, nome, cpf, senha, idAgencia);
 					mapa.put(cpf, presidente);
 					System.out.println(presidente.getNome()+" cargo "+presidente.getCargo());

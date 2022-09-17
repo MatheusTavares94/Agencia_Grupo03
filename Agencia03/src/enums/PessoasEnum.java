@@ -1,6 +1,6 @@
-package Enums;
+package enums;
 
-public enum pessoasEnum {
+public enum PessoasEnum {
 	PRESIDENTE,
 	DIRETOR,
 	GERENTE,

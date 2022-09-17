@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import Enums.contasEnum;
+import enums.ContasEnum;
 import servicos.Conta;
 import servicos.ContaCorrente;
 import servicos.ContaPoupanca;
@@ -35,10 +35,10 @@ public class MapeamentoContas {
 			String idAgencia = s[2];
 			String tipo = s[3];
 
-			if (tipo.equalsIgnoreCase(contasEnum.CONTACORRENTE.name())) {
+			if (tipo.equalsIgnoreCase(ContasEnum.CORRENTE.name())) {
 				Conta cc = new ContaCorrente(cpf, saldo, idAgencia, tipo);
 				mapa.put(cpf, cc);
-			} else if (tipo.equalsIgnoreCase(contasEnum.CONTAPOUPANCA.name())) {
+			} else if (tipo.equalsIgnoreCase(ContasEnum.POUPANCA.name())) {
 				Conta cp = new ContaPoupanca(cpf, saldo, idAgencia ,tipo);
 				mapa.put(cpf, cp);
 	

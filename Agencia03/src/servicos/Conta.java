@@ -1,35 +1,43 @@
 package servicos;
 
+import exceptions.DepositoException;
+
 public abstract class Conta {
 	private String cpfTitular;
 	private double saldo;
 	private String idAgencia;
 	private String tipo;
-	
+
 	public Conta(String cpfTitular, double saldo, String idAgencia, String tipo) {
 		this.cpfTitular = cpfTitular;
 		this.saldo = saldo;
-		this.idAgencia =  idAgencia;
+		this.idAgencia = idAgencia;
 		this.tipo = tipo;
 	}
-	public Conta() {		
+
+	public Conta() {
 	}
-	
+
 	public String getCpfTitular() {
 		return cpfTitular;
 	}
+
 	public void setCpfTitular(String cpfTitular) {
 		this.cpfTitular = cpfTitular;
 	}
+
 	public double getSaldo() {
 		return saldo;
 	}
+
 	public void setSaldo(double saldo) {
 		this.saldo = saldo;
 	}
+
 	public String getIdAgencia() {
 		return idAgencia;
 	}
+
 	public void setIdAgencia(String idAgencia) {
 		this.idAgencia = idAgencia;
 	}
@@ -41,7 +49,7 @@ public abstract class Conta {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-	
+
 	public boolean sacar(double valor) {
 		if (this.saldo < valor + 0.10) {
 			return false;
@@ -51,19 +59,27 @@ public abstract class Conta {
 			return true;
 		}
 	}
-	
+
 	public void depositar(double deposito) {
-		this.saldo = this.saldo + deposito - 0.10;
+		try {
+			if (deposito < 0) {
+				throw new DepositoException("Valores negativos são inválidos!");
+			} else {
+				this.saldo = this.saldo + deposito - 0.10;
+			}
+		} catch (DepositoException e) {
+			throw new DepositoException("Houve um problema com seu depósito!", e);
+		}
 	}
-	
+
 	public void transferir(Conta destino, double valor) {
-	
-		if (valor<=0) {
+
+		if (valor <= 0) {
 			System.out.println("Valor inválido!\n");
 		}
-		
+
 		else if (this.saldo >= valor + 0.20) {
-			this.saldo = this.saldo - valor-0.20;
+			this.saldo = this.saldo - valor - 0.20;
 			destino.saldo = destino.saldo + valor;
 			System.out.println("Transferência realizada com sucesso!\n");
 		} else {

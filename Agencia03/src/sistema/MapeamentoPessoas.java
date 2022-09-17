@@ -5,14 +5,15 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import Enums.pessoasEnum;
+
+import enums.PessoasEnum;
 import pessoal.Cliente;
 import pessoal.Diretor;
 import pessoal.Gerente;
 import pessoal.Pessoa;
 import pessoal.Presidente;
 
-public class Mapeamento {
+public class MapeamentoPessoas {
 	static Map<String, Pessoa> mapa = new HashMap<>();
 
 	public static void Ler(String path) throws IOException {
@@ -36,16 +37,16 @@ public class Mapeamento {
 		String SENHA = s[3];
 		String idAgencia = s[4];
 
-		if (cargo.equalsIgnoreCase(pessoasEnum.CLIENTE.name())) {
+		if (cargo.equalsIgnoreCase(PessoasEnum.CLIENTE.name())) {
 			Pessoa cliente = new Cliente(cargo, nome, CPF, SENHA, idAgencia);
 			mapa.put(CPF, cliente);
-		} else if (cargo.equalsIgnoreCase(pessoasEnum.GERENTE.name())) {
+		} else if (cargo.equalsIgnoreCase(PessoasEnum.GERENTE.name())) {
 			Pessoa gerente = new Gerente(cargo, nome, CPF, SENHA, idAgencia);
 			mapa.put(CPF, gerente);
-		} else if (cargo.equalsIgnoreCase(pessoasEnum.DIRETOR.name())) {
+		} else if (cargo.equalsIgnoreCase(PessoasEnum.DIRETOR.name())) {
 			Pessoa diretor = new Diretor(cargo, nome, CPF, SENHA, idAgencia);
 			mapa.put(CPF, diretor);
-		} else if (cargo.equalsIgnoreCase(pessoasEnum.PRESIDENTE.name())) {
+		} else if (cargo.equalsIgnoreCase(PessoasEnum.PRESIDENTE.name())) {
 			Pessoa presidente = new Presidente(cargo, nome, CPF, SENHA, idAgencia);
 			mapa.put(CPF, presidente);
 
