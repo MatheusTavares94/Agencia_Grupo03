@@ -1,5 +1,6 @@
 package sistema;
 
+import java.io.IOException;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -9,8 +10,9 @@ import servicos.Conta;
 public class MenuCliente {
 	static Scanner scan = new Scanner(System.in);
 	static SeguroDeVida seguro = new SeguroDeVida();
-
-	public static void menuCliente(Pessoa usuario, Conta conta, Map<String, Conta> mc) {
+	static int operacao;
+	static double valor;
+	public static void menuCliente(Pessoa usuario, Conta conta, Map<String, Conta> mc) throws IOException {
 		int opcao;
 
 		do {
@@ -42,7 +44,7 @@ public class MenuCliente {
 		} while (opcao != 3);
 	}
 
-	public static void menuMovimentacoes(Pessoa usuario, Conta conta, Map<String, Conta> mc) {
+	public static void menuMovimentacoes(Pessoa usuario, Conta conta, Map<String, Conta> mc) throws IOException {
 		int opcao;
 
 		do {
@@ -55,6 +57,7 @@ public class MenuCliente {
 			System.out.println(" 5 - Finalizar");
 			System.out.println("========Digite a opção escolhida=======");
 			opcao = scan.nextInt();
+			operacao = opcao;
 
 			switch (opcao) {
 
@@ -62,6 +65,7 @@ public class MenuCliente {
 				System.out.println("Digite o quanto deseja sacar:");
 				double saque = scan.nextDouble();
 				conta.sacar(saque);
+				valor = saque;
 				System.out.println("Saque realizado com sucesso \nO novo saldo é R$" + conta.getSaldo());
 				break;
 
@@ -69,6 +73,7 @@ public class MenuCliente {
 				System.out.println("Digite o quanto deseja depositar:");
 				double deposito = scan.nextDouble();
 				conta.depositar(deposito);
+				valor = deposito;
 				System.out.println("Depósito realizado com sucesso \nO novo saldo é R$" + conta.getSaldo());
 				break;
 
@@ -80,6 +85,7 @@ public class MenuCliente {
 				if (mc.containsKey(contaTransferir) == true) {
 					Conta contaDestino = mc.get(contaTransferir);
 					conta.transferir(contaDestino, valorTransferir);
+					valor = valorTransferir;
 				} else {
 					System.out.println("Não é possível realizar a operação");
 				}
@@ -100,7 +106,7 @@ public class MenuCliente {
 
 	}
 
-	public static void menuRelatorios(Pessoa usuario, Conta conta, Map<String, Conta> mc) {
+	public static void menuRelatorios(Pessoa usuario, Conta conta, Map<String, Conta> mc) throws IOException {
 		int opcao;
 
 		do {
@@ -121,7 +127,8 @@ public class MenuCliente {
 				System.out.println("Seu saldo é de R$" + conta.getSaldo());
 				break;
 
-			case 2: // relatorioCC();
+			case 2: 
+				Leitor.leitor("C:\\Users\\Matheus\\Documents\\Trabalho POO\\Agencia_Grupo03\\Agencia03\\src\\file\\RELATORIO.txt");
 
 				break;
 
@@ -158,6 +165,13 @@ public class MenuCliente {
 		System.out.println("O investimento de R$" + valor + " renderá R$" + (valor * 0.005) * meses + " ao total de "
 				+ meses + "meses.");
 
+	}
+	
+	public static int getOperacao() {
+		return operacao;
+	}
+	public static double getValor() {
+		return valor;
 	}
 
 }
