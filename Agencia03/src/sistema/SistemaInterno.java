@@ -19,13 +19,13 @@ public class SistemaInterno {
 		Autenticar.autenticar();
 
 		if (Autenticar.getUsuario().getCargo().equals(PessoasEnum.CLIENTE.name())) {
-			MenuCliente.menuCliente(Autenticar.getUsuario(), Autenticar.getConta(), mc);
+			MenuCliente.menu(Autenticar.getUsuario(), Autenticar.getConta(), mc);
 		} else if (Autenticar.getUsuario().getCargo().equals(PessoasEnum.GERENTE.name())) {
-			MenuGerente.menuGerente(Autenticar.getUsuario(), Autenticar.getConta(), mc);
+			MenuGerente.menu(Autenticar.getUsuario(), Autenticar.getConta(), mc);
 		} else if (Autenticar.getUsuario().getCargo().equals(PessoasEnum.DIRETOR.name())) {
-			MenuDiretor.menuDiretor(Autenticar.getUsuario(), Autenticar.getConta(), mc, mp);
+			//MenuDiretor.menu(Autenticar.getUsuario(), Autenticar.getConta(), mc, mp);
 		} else if (Autenticar.getUsuario().getCargo().equals(PessoasEnum.PRESIDENTE.name())) {
-			MenuPresidente.menuPresidente(Autenticar.getUsuario(), Autenticar.getConta(), mc);
+			MenuPresidente.menu(Autenticar.getUsuario(), Autenticar.getConta(), mc);
 		}
 
 	}
