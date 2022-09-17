@@ -1,0 +1,4 @@
+Operação saque selecionada: 
+-500.0 reais Tarifa: 0,10 reais
+Total: 499.9 reais
+
