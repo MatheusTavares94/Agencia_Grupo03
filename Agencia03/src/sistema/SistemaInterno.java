@@ -49,7 +49,7 @@ public class SistemaInterno {
 			MenuPresidente.menuPresidente(Autenticar.getUsuario(), Autenticar.getConta(), mc);
 		}
 		
-		Relatorio.Escrever("C:\\Users\\Matheus\\Documents\\Trabalho POO\\Agencia_Grupo03\\Agencia03\\src\\file\\RELATORIO.txt");
+		Relatorio.Escrever(".\\src\\RELATORIO.txt");
 		
 	}
 

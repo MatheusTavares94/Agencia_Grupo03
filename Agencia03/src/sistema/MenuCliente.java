@@ -1,6 +1,8 @@
 package sistema;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -8,11 +10,16 @@ import pessoal.Pessoa;
 import servicos.Conta;
 
 public class MenuCliente {
+	
+	static LocalDateTime agora = LocalDateTime.now();
+	static String agoraFormatado = agora.format(DateTimeFormatter.ofPattern("dd-MM-yyyy_HH-mm-ss"));
+	
 	static Scanner scan = new Scanner(System.in);
 	static SeguroDeVida seguro = new SeguroDeVida();
 	static int operacao;
 	static double valor;
 	public static void menuCliente(Pessoa usuario, Conta conta, Map<String, Conta> mc) throws IOException {
+
 		int opcao;
 
 		do {
@@ -66,6 +73,7 @@ public class MenuCliente {
 				double saque = scan.nextDouble();
 				conta.sacar(saque);
 				valor = saque;
+				Relatorio.Escrever(".\\src\\file\\" + agoraFormatado + "_RELATORIO.txt");
 				System.out.println("Saque realizado com sucesso \nO novo saldo é R$" + conta.getSaldo());
 				break;
 
@@ -128,7 +136,7 @@ public class MenuCliente {
 				break;
 
 			case 2: 
-				Relatorio.Escrever("C:\\Users\\Matheus\\Documents\\Trabalho POO\\Agencia_Grupo03\\Agencia03\\src\\file\\RELATORIO.txt");
+				Leitor.leitor(".\\src\\file\\RELATORIO.txt");
 
 				break;
 
