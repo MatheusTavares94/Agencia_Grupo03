@@ -83,7 +83,7 @@ public class MenuDiretor extends Menu {
 
 		List<Pessoa> contasPessoa = new ArrayList<Pessoa>(mp.values());
 
-		Collections.sort(contasPessoa);
+		
 		System.out.println((contasPessoa));
 	}
 

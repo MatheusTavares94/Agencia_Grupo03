@@ -184,4 +184,5 @@ public class Menu {
 	public static double getValor() {
 		return valor;
 	}
+
 }

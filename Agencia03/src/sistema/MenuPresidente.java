@@ -1,6 +1,8 @@
 package sistema;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -16,7 +18,7 @@ public class MenuPresidente extends Menu {
 	static int operacao;
 	static double valor;
 
-	public static void menuRelatorios(Pessoa usuario, Conta conta, Map<String, Conta> mc, Map<String, Pessoa> mp) throws IOException {
+	public void menuRelatorios(Pessoa usuario, Conta conta, Map<String, Conta> mc, Map<String, Pessoa> mp) throws IOException {
 		int opcao;
 
 		do {
@@ -45,10 +47,10 @@ public class MenuPresidente extends Menu {
 				simulaRendimento();
 				break;
 
-			case 4: // relatorioClientes();
+			case 4: infoCliente(mp);
 				break;
 
-			case 5: // relatorioCapitalTotal();
+			case 5: System.out.println("O total de capital armazenado é de R$"+calculaTotal(mc));
 				break;
 
 			case 6:
@@ -76,6 +78,24 @@ public class MenuPresidente extends Menu {
 		System.out.println("O investimento de R$" + valor + " renderá R$" + (valor * 0.005) * meses + " ao total de "
 				+ meses + "meses.");
 
+	}
+	
+	public static void infoCliente(Map<String, Pessoa> mp) {
+
+		List<Pessoa> contasPessoa = new ArrayList<Pessoa>(mp.values());
+
+		
+		System.out.println((contasPessoa));
+	}
+	
+	public static double calculaTotal(Map<String, Conta> mc) {
+		double total = 0;
+		List<Conta> contas = new ArrayList<Conta>(mc.values());
+		for (Conta conta : contas) {
+			total =+ conta.getSaldo();
+		}		
+		
+		return total;
 	}
 
 	public static int getOperacao() {
