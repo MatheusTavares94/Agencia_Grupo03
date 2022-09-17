@@ -127,8 +127,8 @@ public class MenuCliente {
 				System.out.println("Seu saldo é de R$" + conta.getSaldo());
 				break;
 
-			case 2: 
-				Leitor.leitor("C:\\Users\\Matheus\\Documents\\Trabalho POO\\Agencia_Grupo03\\Agencia03\\src\\file\\RELATORIO.txt");
+			case 2:
+				Relatorio.Escrever("C:\\Users\\Matheus\\Documents\\Trabalho POO\\Agencia_Grupo03\\Agencia03\\src\\file\\RELATORIO.txt");
 
 				break;
 

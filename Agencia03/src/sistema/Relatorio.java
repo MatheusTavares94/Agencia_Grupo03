@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Relatório {
+public class Relatorio {
 	public static void Escrever(String path) throws IOException {
 		BufferedWriter buffWrite = new BufferedWriter(new FileWriter(path));
 		String linha = "";
