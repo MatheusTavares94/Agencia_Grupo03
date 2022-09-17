@@ -23,7 +23,7 @@ public class SistemaInterno {
 		} else if (Autenticar.getUsuario().getCargo().equals(PessoasEnum.GERENTE.name())) {
 			MenuGerente.menu(Autenticar.getUsuario(), Autenticar.getConta(), mc);
 		} else if (Autenticar.getUsuario().getCargo().equals(PessoasEnum.DIRETOR.name())) {
-			//MenuDiretor.menu(Autenticar.getUsuario(), Autenticar.getConta(), mc, mp);
+			MenuDiretor.menu(Autenticar.getUsuario(), Autenticar.getConta(), mc, mp);
 		} else if (Autenticar.getUsuario().getCargo().equals(PessoasEnum.PRESIDENTE.name())) {
 			MenuPresidente.menu(Autenticar.getUsuario(), Autenticar.getConta(), mc);
 		}
