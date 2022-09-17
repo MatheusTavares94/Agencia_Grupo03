@@ -8,7 +8,7 @@ import pessoal.Pessoa;
 import servicos.Conta;
 
 public class Menu {
-	
+
 	public Menu() {
 		super();
 	}
@@ -74,7 +74,7 @@ public class Menu {
 				conta.sacar(saque);
 				valor = saque;
 				contador++;
-				Relatorio.Escrever(".\\src\\file\\" + usuario.getNome() + "_" + contador + "_Saque_RELATORIO.txt");
+				Relatorio.Escrever(".\\src\\file\\0 " + usuario.getNome() + "_" + contador + "_Saque_RELATORIO.txt");
 				System.out.println("Saque realizado com sucesso \nO novo saldo é R$" + conta.getSaldo());
 				break;
 
@@ -84,7 +84,7 @@ public class Menu {
 				conta.depositar(deposito);
 				valor = deposito;
 				contador++;
-				Relatorio.Escrever(".\\src\\file\\" + usuario.getNome() + "_" + contador + "_Deposito_RELATORIO.txt");
+				Relatorio.Escrever(".\\src\\file\\0 " + usuario.getNome() + "_" + contador + "_Deposito_RELATORIO.txt");
 				System.out.println("Depósito realizado com sucesso \nO novo saldo é R$" + conta.getSaldo());
 				break;
 
@@ -99,7 +99,7 @@ public class Menu {
 					valor = valorTransferir;
 					contador++;
 					Relatorio.Escrever(
-							".\\src\\file\\" + usuario.getNome() + "_" + contador + "_Transferencia_RELATORIO.txt");
+							".\\src\\file\\0 " + usuario.getNome() + "_" + contador + "_Transferencia_RELATORIO.txt");
 				} else {
 					System.out.println("Não é possível realizar a operação");
 				}
@@ -119,6 +119,7 @@ public class Menu {
 		} while (opcao != 5);
 
 	}
+
 	public static void menuRelatorios(Pessoa usuario, Conta conta, Map<String, Conta> mc) throws IOException {
 		int opcao;
 
