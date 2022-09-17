@@ -49,7 +49,7 @@ public class MenuPresidente extends Menu{
 				break;
 
 			case 6:
-				menuPresidente(usuario, conta, mc);
+				menu(usuario, conta, mc);
 				break;
 
 			case 7:
