@@ -18,4 +18,19 @@ public class Leitor {
 		buffRead.close();
 	}
 
+	public static void leitorBanner(String path) throws IOException {
+		String linha = "";
+		BufferedReader buffRead = new BufferedReader(new FileReader(path));
+
+		while (true) {
+			if (linha != null) {
+				System.out.println(linha);
+
+			} else
+				break;
+			linha = buffRead.readLine();
+		}
+		buffRead.close();
+	}
+
 }
