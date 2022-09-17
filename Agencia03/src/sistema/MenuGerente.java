@@ -1,15 +1,19 @@
 package sistema;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Map;
 import java.util.Scanner;
 
+import pessoal.Gerente;
 import pessoal.Pessoa;
 import servicos.Conta;
 
 public class MenuGerente {
 	static Scanner scan = new Scanner(System.in);
 
-	public static void menuGerente(Pessoa usuario, Conta conta, Map<String, Conta> mc) {
+	public static void menuGerente(Pessoa usuario, Conta conta, Map<String, Conta> mc) throws IOException {
 		int opcao;
 
 		do {
@@ -41,7 +45,7 @@ public class MenuGerente {
 		} while (opcao != 3);
 	}
 
-	public static void menuMovimentacoes(Pessoa usuario, Conta conta, Map<String, Conta> mc) {
+	public static void menuMovimentacoes(Pessoa usuario, Conta conta, Map<String, Conta> mc) throws IOException {
 		int opcao;
 
 		do {
@@ -100,7 +104,7 @@ public class MenuGerente {
 
 	}
 
-	public static void menuRelatorios(Pessoa usuario, Conta conta, Map<String, Conta> mc) {
+	public static void menuRelatorios(Pessoa usuario, Conta conta, Map<String, Conta> mc) throws IOException {
 		int opcao;
 
 		do {
@@ -128,7 +132,8 @@ public class MenuGerente {
 				simulaRendimento();
 				break;
 
-			case 4: // relatorioAgencia();
+			case 4:
+				System.out.println("Há um total de " + usuariosAgencia ((Gerente) usuario) + " contas cadastradas na mesma agência");
 				break;
 
 			case 5:
@@ -156,6 +161,25 @@ public class MenuGerente {
 		System.out.println("O investimento de R$" + valor + " renderá R$" + (valor * 0.005) * meses + " ao total de "
 				+ meses + "meses.");
 
+	}
+	public static int usuariosAgencia(Pessoa usuario) throws IOException {
+		BufferedReader br = new BufferedReader(new FileReader(".\\arquivos\\" + "Clientes.txt"));
+		int contasAg = 0;
+		String linha = "";
+		
+		while (true)  {	     
+			linha = br.readLine();
+			
+			if(linha != null) {
+	        String[] s = linha.split(";"); 
+		        if(usuario.getCargo().equals(s[0])){
+		        	contasAg++;
+				}
+			} else 
+				break;
+		}
+	br.close();
+	return contasAg;
 	}
 
 }

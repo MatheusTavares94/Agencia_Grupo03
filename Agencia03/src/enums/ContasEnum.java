@@ -1,6 +1,6 @@
 package enums;
 
-public enum contasEnum {
+public enum ContasEnum {
 	CORRENTE,
 	POUPANCA;
 }

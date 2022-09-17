@@ -127,7 +127,11 @@ public class MenuCliente {
 				System.out.println("Seu saldo é de R$" + conta.getSaldo());
 				break;
 
+<<<<<<< HEAD
 			case 2:
+=======
+			case 2: 
+>>>>>>> main
 				Relatorio.Escrever("C:\\Users\\Matheus\\Documents\\Trabalho POO\\Agencia_Grupo03\\Agencia03\\src\\file\\RELATORIO.txt");
 
 				break;
