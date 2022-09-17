@@ -7,13 +7,16 @@ import java.util.Scanner;
 import pessoal.Pessoa;
 import servicos.Conta;
 
-public class MenuPresidente extends Menu{
-	static int contador=0;
+public class MenuPresidente extends Menu {
+	
+	public static void menu(Pessoa usuario, Conta conta, Map<String, Conta> mc, Map<String, Pessoa> mp) {
+	}
+	static int contador = 0;
 	static Scanner scan = new Scanner(System.in);
 	static int operacao;
 	static double valor;
 
-	public static void menuRelatorios(Pessoa usuario, Conta conta, Map<String, Conta> mc) throws IOException {
+	public static void menuRelatorios(Pessoa usuario, Conta conta, Map<String, Conta> mc, Map<String, Pessoa> mp) throws IOException {
 		int opcao;
 
 		do {
@@ -32,7 +35,7 @@ public class MenuPresidente extends Menu{
 			switch (opcao) {
 
 			case 1:
-				System.out.println("Seu saldo é de R$"+ conta.getSaldo()); 
+				System.out.println("Seu saldo é de R$" + conta.getSaldo());
 				break;
 
 			case 2: // relatorioCC();
@@ -49,7 +52,7 @@ public class MenuPresidente extends Menu{
 				break;
 
 			case 6:
-				menuPresidente(usuario, conta, mc);
+				menu(usuario, conta, mc, mp);
 				break;
 
 			case 7:
@@ -78,8 +81,9 @@ public class MenuPresidente extends Menu{
 	public static int getOperacao() {
 		return operacao;
 	}
+
 	public static double getValor() {
 		return valor;
 	}
-	
+
 }

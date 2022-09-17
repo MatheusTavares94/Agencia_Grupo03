@@ -10,8 +10,8 @@ import pessoal.Gerente;
 import pessoal.Pessoa;
 import servicos.Conta;
 
-public class MenuGerente extends Menu{
-	static int contador=0;
+public class MenuGerente extends Menu {
+	static int contador = 0;
 	static Scanner scan = new Scanner(System.in);
 	static int operacao;
 	static double valor;
@@ -34,7 +34,7 @@ public class MenuGerente extends Menu{
 			switch (opcao) {
 
 			case 1:
-				System.out.println("Seu saldo é de R$"+ conta.getSaldo()); 
+				System.out.println("Seu saldo é de R$" + conta.getSaldo());
 				break;
 
 			case 2: // relatorioCC();
@@ -45,7 +45,8 @@ public class MenuGerente extends Menu{
 				break;
 
 			case 4:
-				System.out.println("Há um total de " + usuariosAgencia ((Gerente) usuario) + " contas cadastradas na mesma agência");
+				System.out.println("Há um total de " + usuariosAgencia((Gerente) usuario)
+						+ " contas cadastradas na mesma agência");
 				break;
 
 			case 5:
@@ -74,31 +75,33 @@ public class MenuGerente extends Menu{
 				+ meses + "meses.");
 
 	}
+
 	public static int usuariosAgencia(Pessoa usuario) throws IOException {
 		BufferedReader br = new BufferedReader(new FileReader(".\\arquivos\\" + "Clientes.txt"));
 		int contasAg = 0;
 		String linha = "";
-		
-		while (true)  {	     
+
+		while (true) {
 			linha = br.readLine();
-			
-			if(linha != null) {
-	        String[] s = linha.split(";"); 
-		        if(usuario.getCargo().equals(s[0])){
-		        	contasAg++;
+
+			if (linha != null) {
+				String[] s = linha.split(";");
+				if (usuario.getCargo().equals(s[0])) {
+					contasAg++;
 				}
-			} else 
+			} else
 				break;
 		}
-	br.close();
-	return contasAg;
+		br.close();
+		return contasAg;
 	}
 
 	public static int getOperacao() {
 		return operacao;
 	}
+
 	public static double getValor() {
 		return valor;
 	}
-	
+
 }
