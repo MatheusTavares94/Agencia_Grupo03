@@ -11,7 +11,10 @@ import pessoal.Pessoa;
 import servicos.Conta;
 
 public class MenuGerente {
+	static int contador=0;
 	static Scanner scan = new Scanner(System.in);
+	static int operacao;
+	static double valor;
 
 	public static void menuGerente(Pessoa usuario, Conta conta, Map<String, Conta> mc) throws IOException {
 		int opcao;
@@ -58,6 +61,7 @@ public class MenuGerente {
 			System.out.println(" 5 - Finalizar");
 			System.out.println("========Digite a opção escolhida=======");
 			opcao = scan.nextInt();
+			operacao = opcao;
 
 			switch (opcao) {
 
@@ -65,6 +69,9 @@ public class MenuGerente {
 				System.out.println("Digite o quanto deseja sacar:");
 				double saque = scan.nextDouble();
 				conta.sacar(saque);
+				valor = saque;
+				contador ++;
+				Relatorio.Escrever(".\\src\\file\\" + usuario.getNome() + "_" + contador + "_Saque_RELATORIO.txt");
 				System.out.println("Saque realizado com sucesso \nO novo saldo é R$"+conta.getSaldo());
 				break;
 
@@ -72,6 +79,9 @@ public class MenuGerente {
 				System.out.println("Digite o quanto deseja depositar:");
 				double deposito = scan.nextDouble();
 				conta.depositar(deposito);
+				valor = deposito;
+				contador ++;
+				Relatorio.Escrever(".\\src\\file\\" + usuario.getNome() + "_" + contador + "_Deposito_RELATORIO.txt");
 				System.out.println("Depósito realizado com sucesso \nO novo saldo é R$"+conta.getSaldo());
 				break;
 
@@ -83,6 +93,9 @@ public class MenuGerente {
 				if(mc.containsKey(contaTransferir) == true) {
 					Conta contaDestino = mc.get(contaTransferir);
 					conta.transferir(contaDestino, valorTransferir);
+					valor = valorTransferir;
+					contador ++;
+					Relatorio.Escrever(".\\src\\file\\" + usuario.getNome() + "_" + contador + "_Transferencia_RELATORIO.txt");
 				}
 				else {
 					System.out.println("Não é possível realizar a operação");
@@ -182,4 +195,11 @@ public class MenuGerente {
 	return contasAg;
 	}
 
+	public static int getOperacao() {
+		return operacao;
+	}
+	public static double getValor() {
+		return valor;
+	}
+	
 }
