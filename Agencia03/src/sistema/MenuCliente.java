@@ -10,6 +10,7 @@ import pessoal.Pessoa;
 import servicos.Conta;
 
 public class MenuCliente {
+	static int contador=0;
 	
 	static LocalDateTime agora = LocalDateTime.now();
 	static String agoraFormatado = agora.format(DateTimeFormatter.ofPattern("dd-MM-yyyy_HH-mm-ss"));
@@ -65,15 +66,19 @@ public class MenuCliente {
 			System.out.println("========Digite a opção escolhida=======");
 			opcao = scan.nextInt();
 			operacao = opcao;
-
+			
+			
 			switch (opcao) {
+
+			
 
 			case 1:
 				System.out.println("Digite o quanto deseja sacar:");
 				double saque = scan.nextDouble();
 				conta.sacar(saque);
 				valor = saque;
-				Relatorio.Escrever(".\\src\\file\\" + agoraFormatado + "_RELATORIO.txt");
+				contador ++;
+				Relatorio.Escrever(".\\src\\file\\" + usuario.getNome() + "_" + contador + "_Saque_RELATORIO.txt");
 				System.out.println("Saque realizado com sucesso \nO novo saldo é R$" + conta.getSaldo());
 				break;
 
@@ -82,7 +87,8 @@ public class MenuCliente {
 				double deposito = scan.nextDouble();
 				conta.depositar(deposito);
 				valor = deposito;
-				Relatorio.Escrever(".\\src\\file\\" + agoraFormatado + "_RELATORIO.txt");
+				contador ++;
+				Relatorio.Escrever(".\\src\\file\\" + usuario.getNome() + "_" + contador + "_Deposito_RELATORIO.txt");
 				System.out.println("Depósito realizado com sucesso \nO novo saldo é R$" + conta.getSaldo());
 				break;
 
@@ -95,7 +101,8 @@ public class MenuCliente {
 					Conta contaDestino = mc.get(contaTransferir);
 					conta.transferir(contaDestino, valorTransferir);
 					valor = valorTransferir;
-					Relatorio.Escrever(".\\src\\file\\" + agoraFormatado + "_RELATORIO.txt");
+					contador ++;
+					Relatorio.Escrever(".\\src\\file\\" + usuario.getNome() + "_" + contador + "_Transferencia_RELATORIO.txt");
 				} else {
 					System.out.println("Não é possível realizar a operação");
 				}

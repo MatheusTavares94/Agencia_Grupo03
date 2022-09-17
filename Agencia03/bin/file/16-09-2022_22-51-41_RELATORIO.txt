@@ -1,4 +1,0 @@
-Operação saque selecionada: 
--100.0 reais - 0,10 reais
-Total: 99.9 reais
-
