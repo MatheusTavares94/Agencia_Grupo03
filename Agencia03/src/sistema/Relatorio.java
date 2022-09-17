@@ -17,12 +17,12 @@ public class Relatorio {
 			break;
 			
 		case 2:
-			buffWrite.append("Operação depósito selecionada: \n" + "+" + MenuCliente.getValor() + " reais" + " - 0,10 reais\nTotal: " + (MenuCliente.getValor() - 0.10) + " reais\n\n");
+			buffWrite.append("Operação depósito selecionada: \n" + "+" + MenuCliente.getValor() + " reais" + " Tarifa: 0,10 reais\nTotal: " + (MenuCliente.getValor() - 0.10) + " reais\n\n");
 			
 			break;
 			
 		case 3:
-			buffWrite.append("Operação transferência selecionada: \n" + "-" + MenuCliente.getValor() + " reais" + " - 0,10 reais\nTotal: " + (MenuCliente.getValor() - 0.10) + " reais\n\n");
+			buffWrite.append("Operação transferência selecionada: \n" + "-" + MenuCliente.getValor() + " reais" + " Tarifa 0,20 reais\nTotal: " + (MenuCliente.getValor() - 0.20) + " reais\n\n");
 			
 			break;
 

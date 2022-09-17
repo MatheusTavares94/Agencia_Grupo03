@@ -82,6 +82,7 @@ public class MenuCliente {
 				double deposito = scan.nextDouble();
 				conta.depositar(deposito);
 				valor = deposito;
+				Relatorio.Escrever(".\\src\\file\\" + agoraFormatado + "_RELATORIO.txt");
 				System.out.println("Depósito realizado com sucesso \nO novo saldo é R$" + conta.getSaldo());
 				break;
 
@@ -94,6 +95,7 @@ public class MenuCliente {
 					Conta contaDestino = mc.get(contaTransferir);
 					conta.transferir(contaDestino, valorTransferir);
 					valor = valorTransferir;
+					Relatorio.Escrever(".\\src\\file\\" + agoraFormatado + "_RELATORIO.txt");
 				} else {
 					System.out.println("Não é possível realizar a operação");
 				}
@@ -138,11 +140,7 @@ public class MenuCliente {
 
 			case 2:
  
-
-			
-
 				Leitor.leitor(".\\src\\file\\RELATORIO.txt");
-
 
 				break;
 
