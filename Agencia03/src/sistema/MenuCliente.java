@@ -128,7 +128,7 @@ public class MenuCliente {
 				break;
 
 			case 2: 
-				Leitor.leitor("C:\\Users\\Matheus\\Documents\\Trabalho POO\\Agencia_Grupo03\\Agencia03\\src\\file\\RELATORIO.txt");
+				Relatorio.Escrever("C:\\Users\\Matheus\\Documents\\Trabalho POO\\Agencia_Grupo03\\Agencia03\\src\\file\\RELATORIO.txt");
 
 				break;
 
