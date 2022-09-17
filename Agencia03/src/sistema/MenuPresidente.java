@@ -8,15 +8,17 @@ import pessoal.Pessoa;
 import servicos.Conta;
 
 public class MenuPresidente extends Menu {
-	
+
 	public static void menu(Pessoa usuario, Conta conta, Map<String, Conta> mc, Map<String, Pessoa> mp) {
 	}
+
 	static int contador = 0;
 	static Scanner scan = new Scanner(System.in);
 	static int operacao;
 	static double valor;
 
-	public static void menuRelatorios(Pessoa usuario, Conta conta, Map<String, Conta> mc, Map<String, Pessoa> mp) throws IOException {
+	public static void menuRelatorios(Pessoa usuario, Conta conta, Map<String, Conta> mc, Map<String, Pessoa> mp)
+			throws IOException {
 		int opcao;
 
 		do {
@@ -52,11 +54,7 @@ public class MenuPresidente extends Menu {
 				break;
 
 			case 6:
-<<<<<<< HEAD
-				menu(usuario, conta, mc);
-=======
 				menu(usuario, conta, mc, mp);
->>>>>>> main
 				break;
 
 			case 7:
