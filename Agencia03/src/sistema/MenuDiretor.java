@@ -10,13 +10,18 @@ import java.util.Scanner;
 import pessoal.Pessoa;
 import servicos.Conta;
 
-public class MenuDiretor extends Menu{
-	static int contador=0;
+public class MenuDiretor extends Menu {
+
+	public static void menu(Pessoa usuario, Conta conta, Map<String, Conta> mc, Map<String, Pessoa> mp) {
+	}
+
+	static int contador = 0;
 	static Scanner scan = new Scanner(System.in);
 	static int operacao;
 	static double valor;
 
-	public static void menuRelatorios(Pessoa usuario, Conta conta, Map<String, Conta> mc, Map<String, Pessoa> mp) throws IOException {
+	public static void menuRelatorios(Pessoa usuario, Conta conta, Map<String, Conta> mc, Map<String, Pessoa> mp)
+			throws IOException {
 		int opcao;
 
 		do {
@@ -34,7 +39,7 @@ public class MenuDiretor extends Menu{
 			switch (opcao) {
 
 			case 1:
-				System.out.println("Seu saldo é de R$"+ conta.getSaldo()); 
+				System.out.println("Seu saldo é de R$" + conta.getSaldo());
 				break;
 
 			case 2: // relatorioCC();
@@ -44,7 +49,8 @@ public class MenuDiretor extends Menu{
 				simulaRendimento();
 				break;
 
-			case 4: infoCliente(mp);
+			case 4:
+				infoCliente(mp);
 				break;
 
 			case 5:
@@ -72,17 +78,19 @@ public class MenuDiretor extends Menu{
 				+ meses + "meses.");
 
 	}
-	 public static void infoCliente(Map<String, Pessoa> mp)   {
-	    	
-	    	List<Pessoa> contasPessoa = new ArrayList<Pessoa>(mp.values());
 
-	        Collections.sort(contasPessoa);
-	        System.out.println((contasPessoa)); 		
-	}    
+	public static void infoCliente(Map<String, Pessoa> mp) {
+
+		List<Pessoa> contasPessoa = new ArrayList<Pessoa>(mp.values());
+
+		Collections.sort(contasPessoa);
+		System.out.println((contasPessoa));
+	}
 
 	public static int getOperacao() {
 		return operacao;
 	}
+
 	public static double getValor() {
 		return valor;
 	}
