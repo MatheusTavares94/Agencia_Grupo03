@@ -1,5 +1,8 @@
 package sistema;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -9,7 +12,7 @@ import servicos.Conta;
 public class MenuDiretor {
 	static Scanner scan = new Scanner(System.in);
 
-	public static void menuDiretor(Pessoa usuario, Conta conta, Map<String, Conta> mc) {
+	public static void menuDiretor(Pessoa usuario, Conta conta, Map<String, Conta> mc, Map<String, Pessoa> mp) {
 		int opcao;
 
 		do {
@@ -24,11 +27,11 @@ public class MenuDiretor {
 			switch (opcao) {
 
 			case 1:
-				menuMovimentacoes(usuario, conta, mc);
+				menuMovimentacoes(usuario, conta, mc, mp);
 				break;
 
 			case 2:
-				menuRelatorios(usuario, conta, mc);
+				menuRelatorios(usuario, conta, mc, mp);
 				break;
 
 			case 3:
@@ -41,7 +44,7 @@ public class MenuDiretor {
 		} while (opcao != 3);
 	}
 
-	public static void menuMovimentacoes(Pessoa usuario, Conta conta, Map<String, Conta> mc) {
+	public static void menuMovimentacoes(Pessoa usuario, Conta conta, Map<String, Conta> mc, Map<String, Pessoa> mp) {
 		int opcao;
 
 		do {
@@ -86,7 +89,7 @@ public class MenuDiretor {
 				break;
 
 			case 4:
-				menuDiretor(usuario, conta, mc);
+				menuDiretor(usuario, conta, mc, mp);
 				break;
 
 			case 5:
@@ -100,7 +103,7 @@ public class MenuDiretor {
 
 	}
 
-	public static void menuRelatorios(Pessoa usuario, Conta conta, Map<String, Conta> mc) {
+	public static void menuRelatorios(Pessoa usuario, Conta conta, Map<String, Conta> mc, Map<String, Pessoa> mp) {
 		int opcao;
 
 		do {
@@ -128,11 +131,11 @@ public class MenuDiretor {
 				simulaRendimento();
 				break;
 
-			case 4: // relatorioClientes();
+			case 4: infoCliente(mp);
 				break;
 
 			case 5:
-				menuDiretor(usuario, conta, mc);
+				menuDiretor(usuario, conta, mc, mp);
 				break;
 
 			case 6:
@@ -156,5 +159,12 @@ public class MenuDiretor {
 				+ meses + "meses.");
 
 	}
+	 public static void infoCliente(Map<String, Pessoa> mp)   {
+	    	
+	    	List<Pessoa> contasPessoa = new ArrayList<Pessoa>(mp.values());
+
+	        Collections.sort(contasPessoa);
+	        System.out.println((contasPessoa)); 		
+	}    
 
 }
