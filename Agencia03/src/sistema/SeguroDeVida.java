@@ -20,9 +20,3 @@ public class SeguroDeVida {
 		System.out.println("Seguro de Vida contratado!\nSeu saldo atual é de R$" + saldoAtual + ".");
 	}
 }
-
-//i. Criar uma classe seguro de vida que possa ser contratado pelo cliente
-//onde o mesmo informa o valor que será segurado. No ato da contratação
-//será debitado 20% do valor contratado como tributo do seguro;
-//ii. Incluir no relatório de tributação o valor referente ao seguro de vida, caso
-//este cliente possua estas informações.******************
